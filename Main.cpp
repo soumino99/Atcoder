@@ -27,7 +27,13 @@ int main()
         // cout << A[i] << " ";
     }
 
-    cout << A[N] % MOD << endl;
+    long long answer = A[N] % MOD;
+    if (answer < 0)
+    {
+        answer += MOD;
+    }
+
+    cout << answer << endl;
 
     return 0;
 }
