@@ -1,1 +1,6 @@
 template.txt
+*.exe
+
+# C++用の設定
+*.o
+*.out
