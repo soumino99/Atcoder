@@ -2,12 +2,12 @@
   "version": "2.0.0",
   "tasks": [
     {
-      "label": "build and run (Windows)",
+      "label": "build and run (Windows UTF-8)",
       "type": "shell",
       "command": "powershell",
       "args": [
         "-Command",
-        "g++ -std=c++17 -Wall -O2 -o \"${fileDirname}\\${fileBasenameNoExtension}.exe\" \"${file}\"; if ($?) { & \"${fileDirname}\\${fileBasenameNoExtension}.exe\" }"
+        "chcp 65001 >$null; g++ -std=c++17 -Wall -O2 -o \"${fileDirname}\\${fileBasenameNoExtension}.exe\" \"${file}\"; if ($?) { & \"${fileDirname}\\${fileBasenameNoExtension}.exe\" }"
       ],
       "group": {
         "kind": "build",
