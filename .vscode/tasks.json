@@ -1,24 +1,19 @@
 {
-    "version": "2.0.0",
-    "tasks": [
-      {
-        "label": "build and run",
-        "type": "shell",
-        "command": "g++",
-        "args": [
-          "-std=c++17",
-          "-Wall",
-          "-O2",
-          "-o",
-          "Main",
-          "Main.cpp"
-        ],
-        "group": {
-          "kind": "build",
-          "isDefault": true
-        },
-        "problemMatcher": ["$gcc"]
-      }
-    ]
-  }
-  
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "build and run (Windows)",
+      "type": "shell",
+      "command": "powershell",
+      "args": [
+        "-Command",
+        "g++ -std=c++17 -Wall -O2 -o \"${fileDirname}\\${fileBasenameNoExtension}.exe\" \"${file}\"; if ($?) { & \"${fileDirname}\\${fileBasenameNoExtension}.exe\" }"
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": ["$gcc"]
+    }
+  ]
+}
