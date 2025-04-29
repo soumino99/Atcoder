@@ -15,11 +15,11 @@ int main()
     cin.tie(nullptr);
 
     // Template
-    int N;
-    int T = 0;
+    ll N;
+    ll T = 0;
 
     cin >> N;
-    int H[N - 1];
+    ll H[N];
     rep(i, N)
     {
         cin >> H[i];
@@ -28,68 +28,23 @@ int main()
     // 以下記述
     rep(i, N)
     {
-        if (T % 3 == 0)
+        if (H[i] >= 5)
         {
             T += ((H[i] / 5) * 3);
-            H[i] -= H[i] / 5;
-            if (H[i] == 0)
-                ;
-            else if (H[i] == 1)
+            H[i] -= (H[i] / 5) * 5;
+        }
+        while (H[i] > 0)
+        {
+            if (T % 3 == 2)
+            {
                 T++;
-            else if (H[i] == 2)
-                T += 2;
+                H[i] -= 3;
+            }
             else
-                T += 3;
-        }
-        else if (T % 3 == 1 && H[i] == 0)
-        {
-            ;
-        }
-        else if (T % 3 == 1 && H[i] == 1)
-        {
-            T++;
-        }
-        else if (T % 3 == 1 && H[i] == 2)
-        {
-            T += 2;
-        }
-        else if (T % 3 == 1)
-        {
-            T += 2;
-            H[i] -= 2;
-            T += ((H[i] / 5) * 3);
-            H[i] -= H[i] / 5;
-            if (H[i] == 0)
-                ;
-            else if (H[i] == 1)
+            {
                 T++;
-            else if (H[i] == 2)
-                T += 2;
-            else
-                T += 3;
-        }
-        else if (T % 3 == 2 && H[i] == 0)
-        {
-            ;
-        }
-        else if (T % 3 == 2 && H[i] == 1)
-        {
-            T += 1;
-        }
-        else
-        {
-            T += 1;
-            H[i] -= 1;
-            T += ((H[i] / 5) * 3);
-            H[i] -= H[i] / 5;
-            if (H[i] == 0)
-                ;
-            else if (H[i] == 1)
-                T++;
-            else if (H[i] == 2)
-                T += 2;
-            else
-                T += 3;
+                H[i] -= 1;
+            }
         }
     }
 
